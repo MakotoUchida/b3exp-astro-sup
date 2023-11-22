@@ -20,25 +20,29 @@ $$
 であったので  
 
 $$
-\sigma_{src}^2 = \sigma_{tot}^2 +N_{apr}^2 \sigma_{bkg}^2
+\sigma_{src}^2 = \sigma_{tot}^2 +N_{apr}^2 \sigma_{B}^2
 $$
 
 となるべきである。  
 
-$\sigma_{bkg}$と $\\sigma'_{bkg}$ と区別していることに注目する。  
+$\sigma_{bkg}$と $\\sigma_{b}$ と区別していることに注目する。  
 
 つまり、ここで $\sigma_{bkg}$ は1画素あたりの背景光の揺らぎを表している。  
 
-一方 $\sigma'_{bkg}$ は円環から測光された背景光の揺らぎを意味する。  
+一方 $\sigma_{B}$ は円環から測光された背景光の揺らぎを意味する。  
 
 円環の画素数を $N_B$ で表し、各画素についての誤差は等しく $\sigma_{bkg}$ とすれば  
 
 $$
-\sigma'_{bkg} = \frac{1}{N_B}\sigma_{bkg}
+\sigma_{B}^2 = \frac{1}{N_B}\sigma_{bkg}^2
 $$
 
 したがって $F_{src}$ の正しい誤差の式は   
 
 $$
-\sigma_{src}^2 = \left(\frac{1}{g}\sqrt{gF_{src}}\right)^2 +N_{apr}\sigma_{bkg}^2 + \frac{N_{apr}^2}{N_B}\sigma_{bkg}^2 
+\sigma_{src}^2 = \left(\frac{1}{g}\sqrt{gF_{src}}\right)^2 +N_{apr}\sigma_{bkg}^2 + \frac{N_{apr}^2}{N_B}\sigma_{bkg}^2  \\
+                 = \frac{F_{src}}{g} + N_{apr}(1+\frac{N_{apr}}{N_B})\sigma_{bkg}^2
 $$
+
+一般的に開口円の画素数$N_{apr}$と円環の画素数$N_B$は $N_{apr} < N_B$であるため  
+近似的には `photometry.pdf` の表式で正しいといえる。
